@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<h1>Are you sure you want to delete <%= title %> ??</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">
+            <%= title %>
+        </h5>
+        <p class="card-text"><small class="text-body-secondary">
+                <%= location %>
+            </small></p>
+        <p class="card-text"><small class="text-body-secondary">&#x20b9;<%= price %>.00 Per Night</small>
+        </p>
+        <p class="card-text">
+            <%= description %>
+        </p>
+        <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col">
+                    <img src="https://picsum.photos/200" class="" alt="">
+                </div>
+                <div class="col">
+                    <img src="https://picsum.photos/200" class="" alt="">
+                </div>
+                <div class="col">
+                    <img src="https://picsum.photos/200" class="" alt="">
+                </div>
+                <div class="col">
+                    <img src="https://picsum.photos/200" class="" alt="">
+                </div>
+                <div class="col">
+                    <img src="https://picsum.photos/200" class="" alt="">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <section>
+            <form action="/campgrounds/<%=_id %>?_method=DELETE" method="POST">
+                <button class="btn btn-primary" type="submit">Yes</button>
+                <button class="btn btn-primary"><a href="/campgrounds/<%= _id %>" style="text-decoration: none; color: inherit;">No</a></button>
+            </form>
+        </section>
+    </div>
+</div>

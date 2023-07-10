@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<div class="row">
+    <h1 class="text-center">New Campground</h1>
+    <div class="col-6 offset-3">
+        <form class="needs-validation" action="/campgrounds" method="post" class="form my-3" enctype="multipart/form-data" novalidate>
+            <section>
+                <div>
+                    <label class="form-label" for="title">Enter Camp Name : </label>
+                    <input class="form-control" type="text" name="title" id="title" placeholder="Enter a Name" required>
+                    <div class="invalid-feedback">Name is required</div>
+                    <div class="valid-feedback">Name looks amazing :)</div>
+                </div>
+                <div>
+                    <label class="form-label" for="price">Enter Price Per Night : </label>
+                    <input class="form-control" type="number" name="price" id="price" placeholder="Enter Price in INR" required>
+                    <div class="invalid-feedback">Price is required</div>
+                    <div class="valid-feedback"></div>
+                </div>
+                <div>
+                    <label class="form-label" for="location">Enter Location</label>
+                    <input class="form-control" type="text" name="location" id="location" placeholder="Enter Location" required>
+                    <div class="invalid-feedback">Location is required</div>
+                    <div class="valid-feedback">Looks Good</div>
+                </div>
+                <div>
+                    <label for="image">Add some images</label>
+                    <input type="file" name="images" id="images" multiple>
+                </div>
+                <div>
+                    <label class="form-label" for="description">Enter a small description : </label><br>
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Surrounded by trees in the middle of the forest is ..." required></textarea>
+                    <div class="invalid-feedback">Please give a small description</div>
+                    <div class="valid-feedback"></div>
+                </div>
+            </section>
+            <section>
+                <hr>
+                <button type="submit" class="btn btn-success">Create</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                <hr>
+            </section>
+        </form>
+    </div>
+</div>

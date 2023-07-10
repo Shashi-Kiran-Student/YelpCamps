@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<div class="row">
+    <h1 class="text-center mb-3">Editing <%= title%></h1>
+    <div class="col-6 offset-3">
+        <form class="needs-validation" action="/campgrounds/<%= _id %>?_method=PATCH" method="post" class="form my-3" enctype="multipart/form-data">
+            <section>
+                <div>
+                    <label class="form-label" for="title">Edit Camp Name : </label>
+                    <input class="form-control" type="text" name="title" id="title" placeholder="Enter a Name" value="<%= title%>" required>
+                    <div class="invalid-feedback">Name is required</div>
+                    <div class="valid-feedback">Name looks amazing :)</div>
+                </div>
+                <div>
+                    <label class="form-label" for="price">Change Price : </label>
+                    <input class="form-control" type="number" name="price" id="price" placeholder="Enter Price in INR" value="<%= price %>" required>
+                    <div class="invalid-feedback">Price is required</div>
+                    <div class="valid-feedback"></div>
+                </div>
+                <div>
+                    <label class="form-label" for="location">Enter Location</label>
+                    <input class="form-control" type="text" name="location" id="location" value="<%= location %>" placeholder="Enter Location" disabled required>
+                    <div class="invalid-feedback">Location is required</div>
+                    <div class="valid-feedback">Looks Good</div>
+                </div>
+                <div class="form-file">
+                    <label class="form-label" for="images">Upload More Images</label>
+                    <input class="form-control" type="file" name="images" id="images" multiple>
+                </div>
+                <div>
+                    <label class="form-label" for="description">Description</label><br>
+                    <textarea name="description" id="description" cols="80" rows="10"><%= description %></textarea>
+                    <div class="invalid-feedback">Camp needs Description</div>
+                </div>
+                <div class="d-inline-block">
+                    <% images.forEach(function(img, i){ %>
+                        <img src="<%= img.thumb %>"class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input type="checkbox" name="deleteImages[]" id="image-<%=i%>" value="<%= img.filename %>">
+                            <label for="image-<%=i%>">Delete This ? </label>
+                        </div>
+                    <% }) %>
+                </div>
+            </section>
+            <section>
+                <hr>
+                <button type="submit" class="btn btn-success">Edit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                <hr>
+            </section>
+        </form>
+    </div>
+</div>
