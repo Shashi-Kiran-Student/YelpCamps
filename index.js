@@ -21,7 +21,7 @@ const userRoutes = require('./Routes/users');
 /////////////////////////////////////////////////////////
 /////////All The Middle Ware Are Here////////////////////
 /////////////////////////////////////////////////////////
-// const dbUrl = process.env.DB_ACCESS_URL;
+const dbUrl = process.env.DB_ACCESS_URL;
 
 const app = express();
 app.use(mongoSanitize());
@@ -35,7 +35,7 @@ app.set('views', path.join(__dirname, 'views'));
 /////////////////////////////////////////////////////////
 ///////////////////////MONGO to MONGOOSE/////////////////
 /////////////////////////////////////////////////////////
-const dbUrl = 'mongodb://127.0.0.1:27017/campgrounds'
+// const dbUrl = 'mongodb://127.0.0.1:27017/campgrounds'
 mongoose.connect(dbUrl)
     .then(msg => {
         console.log('PASS    Connected To Database')
@@ -121,6 +121,6 @@ app.use(function (err, req, res, next) {
 /////////////////////////////////////////////////////////
 //////////////////////HOSTING from localhost/////////////
 /////////////////////////////////////////////////////////
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
     console.log('PASS    Server Listening on port 3000')
 });
